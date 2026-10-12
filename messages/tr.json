@@ -1,0 +1,12 @@
+{
+  "Nav": {
+    "home": "Ana Sayfa",
+    "projects": "Projeler",
+    "about": "Hakkımda",
+    "contact": "İletişim"
+  },
+  "Home": {
+    "greeting": "Merhaba, ben Yousef",
+    "viewProjects": "Projelerimi gör"
+  }
+}
