@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import HeroBackground from "./HeroBackground";
 
 type Props = {
   headline?: string;
@@ -26,7 +27,8 @@ export default async function Hero({
   const t = await getTranslations("Home");
 
   return (
-    <section className="flex items-center justify-between gap-10 py-20 sm:py-28">
+    <section className="relative isolate flex items-center justify-between gap-10 py-20 sm:py-28">
+      <HeroBackground />
       <div className="flex min-w-0 flex-1 flex-col gap-8">
         <div style={delay(0)} className="animate-in flex items-center gap-3">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
