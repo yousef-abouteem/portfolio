@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,13 +47,16 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html
+       <html
       lang={locale}
       dir={dir}
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${plexArabic.variable} antialiased`}
     >
-       <body className="font-sans">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <body className="font-sans">
+        <ThemeProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

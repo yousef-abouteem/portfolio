@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { prisma } from "@/lib/prisma";
 import type { Locale } from "@/generated/prisma/client";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -23,7 +24,8 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col gap-12 p-8">
-      <div className="flex justify-end">
+         <div className="flex justify-end gap-2">
+        <ThemeToggle />
         <LanguageSwitcher />
       </div>
 
