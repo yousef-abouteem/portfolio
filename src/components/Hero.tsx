@@ -106,10 +106,17 @@ export default async function Hero({
           {email && (
             <a
               href={`mailto:${email}`}
-              className="px-2 py-2.5 text-sm font-medium text-accent transition hover:opacity-80"
+              className="group/contact inline-flex items-center gap-1.5 px-2 py-2.5 text-sm font-medium text-accent"
             >
-              {t("contact")}{" "}
-              <span className="inline-block rtl:-scale-x-100">→</span>
+              <svg className="size-4 transition-transform duration-300 group-hover/contact:-rotate-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              <span className="relative">
+                {t("contact")}
+                <span className="absolute -bottom-0.5 start-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover/contact:scale-x-100 rtl:origin-right" />
+              </span>
+              <span className="inline-block transition-transform duration-300 group-hover/contact:translate-x-1 rtl:-scale-x-100 rtl:group-hover/contact:-translate-x-1">→</span>
             </a>
           )}
         </div>
