@@ -25,7 +25,7 @@ export default function ProjectCard({
   const href = `/projects/${slug}`;
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-foreground/20">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-foreground/20">
       <Link
         href={href}
         className="relative block aspect-video overflow-hidden border-b border-border bg-muted"

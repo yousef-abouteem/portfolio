@@ -26,6 +26,7 @@ export default async function ProfilePage() {
     githubUrl: profile?.githubUrl ?? "",
     linkedinUrl: profile?.linkedinUrl ?? "",
     cvUrl: profile?.cvUrl ?? "",
+    avatarUrl: profile?.avatarUrl ?? "",
     translations: {
       en: translationFor("en"),
       ar: translationFor("ar"),

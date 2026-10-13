@@ -12,6 +12,7 @@ export const profileSchema = z.object({
   githubUrl: optionalUrl,
   linkedinUrl: optionalUrl,
   cvUrl: optionalUrl,
+  avatarUrl: optionalUrl,
   translations: z.object({
     en: translationSchema,
     ar: translationSchema,

@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
+import ImageUpload from "@/components/admin/ImageUpload";
 import type { ProfileInput } from "@/lib/validations/profile";
 import { updateProfile, type ProfileActionResult } from "./actions";
 
@@ -48,7 +49,7 @@ export default function ProfileForm({
   const errors = result?.fieldErrors ?? {};
 
   function update(
-    key: "email" | "githubUrl" | "linkedinUrl" | "cvUrl",
+    key: "email" | "githubUrl" | "linkedinUrl" | "cvUrl" | "avatarUrl",
     value: string,
   ) {
     setValues((v) => ({ ...v, [key]: value }));
@@ -143,6 +144,18 @@ export default function ProfileForm({
               }
             />
           </Field>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-foreground/15 p-6">
+        <div className="max-w-xs">
+          <ImageUpload
+            label="Profile photo"
+            folder="profile"
+            value={values.avatarUrl}
+            onChange={(url) => update("avatarUrl", url)}
+            error={errors.avatarUrl}
+          />
         </div>
       </section>
 

@@ -37,13 +37,14 @@ export async function updateProfile(
     };
   }
 
-  const { translations, email, githubUrl, linkedinUrl, cvUrl } = parsed.data;
+  const { translations, email, githubUrl, linkedinUrl, cvUrl, avatarUrl } = parsed.data;
 
   const fields = {
     email: email || null,
     githubUrl: githubUrl || null,
     linkedinUrl: linkedinUrl || null,
     cvUrl: cvUrl || null,
+    avatarUrl: avatarUrl || null,
   };
 
   await prisma.profile.upsert({

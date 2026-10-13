@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import Reveal from "@/components/Reveal";
+import TechMarquee from "@/components/TechMarquee";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -34,10 +36,16 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         githubUrl={profile?.githubUrl}
         linkedinUrl={profile?.linkedinUrl}
         cvUrl={profile?.cvUrl}
+        avatarUrl={profile?.avatarUrl}
       />
+      <TechMarquee />
       <ProjectsSection projects={projects} />
-      <AboutSection locale={lang} />
-      <ContactSection email={profile?.email} />
+      <Reveal>
+        <AboutSection locale={lang} />
+      </Reveal>
+      <Reveal>
+        <ContactSection email={profile?.email} />
+      </Reveal>
     </main>
   );
 }
