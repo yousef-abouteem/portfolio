@@ -49,4 +49,4 @@ next-env.d.ts
 /.claude
 /.windsurf
 /.agents
-skills-lock.json
+skills-lock.json!.env.example

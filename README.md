@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yousef Abouteem — Portfolio
 
-## Getting Started
+![Preview](https://yousef-abouteem.vercel.app/en/opengraph-image)
 
-First, run the development server:
+A multilingual personal portfolio (English, Arabic, Turkish) with a custom admin dashboard for managing all content — built with Next.js, Prisma and PostgreSQL.
+
+**Live:** https://yousef-abouteem.vercel.app
+
+## Features
+
+- 🌍 Three languages (EN / AR / TR) with full right-to-left support for Arabic
+- 🌓 Dark and light themes that follow the system preference
+- 🔐 Admin dashboard protected with GitHub OAuth, restricted to a single admin account
+- 📝 Manage projects, profile, skills and experience — every text field in three languages
+- 🖼️ Image uploads sent directly from the browser to Vercel Blob
+- ✅ Server-side validation with Zod on every write
+- 🔎 Localized SEO metadata, hreflang alternates and generated Open Graph images
+
+## Tech stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | Next.js 16 (App Router, Server Components, Server Actions), React 19, TypeScript |
+| Styling | Tailwind CSS v4, next-themes |
+| Internationalization | next-intl |
+| Database | PostgreSQL on Neon, Prisma ORM 7 |
+| Authentication | Better Auth with GitHub OAuth |
+| File storage | Vercel Blob |
+| Validation | Zod |
+| Hosting | Vercel |
+
+## Architecture highlights
+
+- **Translations in the database.** Each content model has a translation table with a unique `(id, locale)` pair, so content in a new language needs no schema change.
+- **Server-side authorization.** Every Server Action calls `requireAdmin()` before touching data, and a database hook rejects sign-ups from any email other than the admin's.
+- **Direct-to-storage uploads.** The server only issues short-lived upload tokens after verifying the admin session, so files never pass through the serverless function.
+- **One layout for LTR and RTL.** Components use logical CSS properties (`ms-`, `ps-`, `start-`), so the same markup works in every language direction.
+
+## Getting started
 
 ```bash
+git clone https://github.com/yousef-abouteem/portfolio.git
+cd portfolio
+npm install
+cp .env.example .env   # then fill in the values
+npx prisma migrate dev
+npx prisma db seed
+npx tsx prisma/seed-about.ts
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    [locale]/      Public site (EN / AR / TR)
+    admin/         Admin dashboard
+    api/           Auth and upload routes
+  components/      UI components
+  i18n/            next-intl routing and configuration
+  lib/             Prisma client, auth and validation schemas
+messages/          UI translations
+prisma/            Schema, migrations and seed scripts
+```
 
-## Learn More
+## Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Yousef Abouteem** — Software Engineer & Frontend Developer
+[LinkedIn](https://www.linkedin.com/in/yousefabouteem/) · [Email](mailto:yousefabouteem@gmail.com)
