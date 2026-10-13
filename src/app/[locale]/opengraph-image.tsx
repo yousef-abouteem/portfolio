@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             letterSpacing: -1.5,
           }}
         >
-          Yousef<span style={{ color: "#818cf8" }}>.</span>
+          <span>Yousef</span><span style={{ color: "#818cf8", marginLeft: -2 }}>.</span>
         </div>
         <div
           style={{
