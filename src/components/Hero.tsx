@@ -145,15 +145,15 @@ export default async function Hero({
       </div>
 
       {avatarUrl && (
-        <div style={delay(300)} className="animate-in relative hidden shrink-0 md:block">
-          <div className="absolute -inset-3 rounded-full bg-accent/20 blur-2xl" />
+        <div style={delay(300)} className="animate-in group relative hidden shrink-0 md:block">
+          <div className="absolute -inset-3 rounded-full bg-accent/20 blur-2xl transition-all duration-500 group-hover:-inset-4 group-hover:bg-accent/25" />
           <Image
             src={avatarUrl}
             alt={t("name")}
             width={224}
             height={224}
             priority
-            className="relative size-56 rounded-full border border-border object-cover"
+            className="relative size-56 rounded-full border border-border object-cover transition duration-500 group-hover:scale-[1.02] group-hover:border-accent/30"
           />
         </div>
       )}
