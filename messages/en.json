@@ -6,7 +6,19 @@
     "contact": "Contact"
   },
   "Home": {
-    "greeting": "Hi, I'm Yousef",
-    "viewProjects": "View my projects"
+    "greeting": "Hi, I'm",
+    "name": "Yousef Abouteem",
+    "available": "Open to work · Istanbul & Remote",
+    "viewProjects": "View projects",
+    "downloadCv": "Download CV",
+    "contact": "Get in touch"
+  },
+  "Projects": {
+    "title": "Selected projects",
+    "subtitle": "Things I've built, from idea to deployment.",
+    "live": "Live demo",
+    "code": "Source code",
+    "details": "Details",
+    "empty": "Projects coming soon."
   }
 }

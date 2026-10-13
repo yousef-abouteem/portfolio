@@ -6,7 +6,19 @@
     "contact": "İletişim"
   },
   "Home": {
-    "greeting": "Merhaba, ben Yousef",
-    "viewProjects": "Projelerimi gör"
+    "greeting": "Merhaba, ben",
+    "name": "Yousef Abouteem",
+    "available": "İşe açığım · İstanbul & Uzaktan",
+    "viewProjects": "Projeleri gör",
+    "downloadCv": "CV'yi indir",
+    "contact": "İletişime geç"
+  },
+  "Projects": {
+    "title": "Seçili projeler",
+    "subtitle": "Fikirden yayına kadar geliştirdiğim işler.",
+    "live": "Canlı demo",
+    "code": "Kaynak kod",
+    "details": "Detaylar",
+    "empty": "Projeler yakında."
   }
 }

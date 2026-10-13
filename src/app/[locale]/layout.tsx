@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,7 +56,10 @@ export default async function LocaleLayout({
     >
       <body className="font-sans">
         <ThemeProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+                   <NextIntlClientProvider>
+            <Header />
+            {children}
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
