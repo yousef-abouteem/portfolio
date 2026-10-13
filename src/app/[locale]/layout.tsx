@@ -40,7 +40,7 @@ export async function generateMetadata({
       languages: { en: "/en", ar: "/ar", tr: "/tr" },
     },
     openGraph: {
-      title: t("title"),
+      title: "Yousef Abouteem",
       description: t("description"),
       url: `/${locale}`,
       siteName: "Yousef Abouteem",

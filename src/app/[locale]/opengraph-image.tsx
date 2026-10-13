@@ -1,12 +1,16 @@
 import { ImageResponse } from "next/og";
+import { prisma } from "@/lib/prisma";
 
-export const size = { width: 1200, height: 630 };
+export const size = { width: 400, height: 400 };
 export const contentType = "image/png";
 export const alt = "Yousef Abouteem";
 
-const skills = ["React", "Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"];
+export default async function OpengraphImage() {
+  const profile = await prisma.profile.findUnique({
+    where: { id: "main" },
+    select: { avatarUrl: true },
+  });
 
-export default function OpengraphImage() {
   return new ImageResponse(
     (
       <div
@@ -14,43 +18,25 @@ export default function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 48,
           background: "#0a0a0a",
-          color: "#fafafa",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            fontSize: 110,
-            fontWeight: 700,
-            letterSpacing: -4,
-          }}
-        >
-          Yousef Abouteem
-          <span style={{ color: "#818cf8" }}>.</span>
-        </div>
-
-        <div style={{ display: "flex", gap: 16 }}>
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              style={{
-                display: "flex",
-                padding: "12px 28px",
-                borderRadius: 999,
-                border: "2px solid #27272a",
-                fontSize: 30,
-                color: "#a1a1aa",
-              }}
-            >
-              {skill}
-            </div>
-          ))}
-        </div>
+        {profile?.avatarUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={profile.avatarUrl}
+            alt=""
+            width={400}
+            height={400}
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <div style={{ display: "flex", color: "#fafafa", fontSize: 200, fontWeight: 700 }}>
+            Y<span style={{ color: "#818cf8" }}>.</span>
+          </div>
+        )}
       </div>
     ),
     size,
