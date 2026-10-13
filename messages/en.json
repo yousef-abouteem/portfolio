@@ -19,7 +19,11 @@
     "live": "Live demo",
     "code": "Source code",
     "details": "Details",
-    "empty": "Projects coming soon."
+    "empty": "Projects coming soon.",
+    "back": "All projects",
+    "overview": "Overview",
+    "stack": "Tech stack",
+    "links": "Links"
   },
   "About": {
     "title": "About",

@@ -33,13 +33,14 @@ export default async function ProjectsSection({
             return (
               <ProjectCard
                 key={project.id}
+                slug={project.slug}
                 title={tr.title}
                 summary={tr.summary}
                 coverImage={project.coverImage}
                 techStack={project.techStack}
                 liveUrl={project.liveUrl}
                 repoUrl={project.repoUrl}
-                labels={{ live: t("live"), code: t("code") }}
+                labels={{ live: t("live"), code: t("code"), details: t("details") }}
               />
             );
           })}

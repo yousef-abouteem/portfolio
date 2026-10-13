@@ -1,16 +1,19 @@
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 type Props = {
+  slug: string;
   title: string;
   summary: string;
   coverImage: string | null;
   techStack: string[];
   liveUrl: string | null;
   repoUrl: string | null;
-  labels: { live: string; code: string };
+  labels: { live: string; code: string; details: string };
 };
 
 export default function ProjectCard({
+  slug,
   title,
   summary,
   coverImage,
@@ -19,9 +22,14 @@ export default function ProjectCard({
   repoUrl,
   labels,
 }: Props) {
+  const href = `/projects/${slug}`;
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-foreground/20">
-      <div className="relative aspect-video overflow-hidden border-b border-border bg-muted">
+      <Link
+        href={href}
+        className="relative block aspect-video overflow-hidden border-b border-border bg-muted"
+      >
         {coverImage ? (
           <Image
             src={coverImage}
@@ -35,11 +43,15 @@ export default function ProjectCard({
             {title.charAt(0)}
           </div>
         )}
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div className="flex flex-col gap-2">
-          <h3 className="text-lg font-semibold">{title}</h3>
+          <h3 className="text-lg font-semibold">
+            <Link href={href} className="transition hover:text-accent">
+              {title}
+            </Link>
+          </h3>
           <p className="text-sm leading-relaxed text-muted-foreground">
             {summary}
           </p>
@@ -58,30 +70,32 @@ export default function ProjectCard({
           </ul>
         )}
 
-        {(liveUrl || repoUrl) && (
-          <div className="mt-auto flex items-center gap-5 pt-2 text-sm font-medium">
-            {liveUrl && (
-              <a
-                href={liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent transition hover:opacity-80"
-              >
-                {labels.live} ↗
-              </a>
-            )}
-            {repoUrl && (
-              <a
-                href={repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition hover:text-foreground"
-              >
-                {labels.code}
-              </a>
-            )}
-          </div>
-        )}
+        <div className="mt-auto flex items-center gap-5 pt-2 text-sm font-medium">
+          <Link href={href} className="transition hover:text-accent">
+            {labels.details}{" "}
+            <span className="inline-block rtl:-scale-x-100">→</span>
+          </Link>
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent transition hover:opacity-80"
+            >
+              {labels.live} ↗
+            </a>
+          )}
+          {repoUrl && (
+            <a
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition hover:text-foreground"
+            >
+              {labels.code}
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

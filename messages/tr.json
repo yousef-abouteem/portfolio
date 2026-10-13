@@ -19,7 +19,11 @@
     "live": "Canlı demo",
     "code": "Kaynak kod",
     "details": "Detaylar",
-    "empty": "Projeler yakında."
+    "empty": "Projeler yakında.",
+    "back": "Tüm projeler",
+    "overview": "Genel bakış",
+    "stack": "Kullanılan teknolojiler",
+    "links": "Bağlantılar"
   },
   "About": {
     "title": "Hakkımda",

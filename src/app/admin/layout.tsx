@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, IBM_Plex_Sans_Arabic } from "next/font/google";
+import ThemeProvider from "@/components/ThemeProvider";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -26,9 +27,12 @@ export default function AdminLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${plexArabic.variable} antialiased`}
     >
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
