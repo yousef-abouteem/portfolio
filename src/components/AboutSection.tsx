@@ -50,7 +50,7 @@ export default async function AboutSection({ locale }: { locale: Locale }) {
                   {group.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground"
+                      className="cursor-default rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground transition duration-200 hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
                     >
                       {skill}
                     </li>
