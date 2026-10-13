@@ -12,16 +12,35 @@ export default function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #a855f7 100%)",
-          color: "#ffffff",
-          fontSize: 84,
-          fontWeight: 700,
-          letterSpacing: -2,
+          gap: 10,
+          background: "#0a0a0a",
         }}
       >
-        YA
+        <div
+          style={{
+            display: "flex",
+            color: "#fafafa",
+            fontSize: 46,
+            fontWeight: 700,
+            letterSpacing: -1.5,
+          }}
+        >
+          Yousef<span style={{ color: "#818cf8" }}>.</span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            color: "#71717a",
+            fontSize: 13,
+            fontWeight: 500,
+            letterSpacing: 4,
+          }}
+        >
+          PORTFOLIO
+        </div>
       </div>
     ),
     size,
