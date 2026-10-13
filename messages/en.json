@@ -47,5 +47,9 @@
   "Footer": {
     "builtWith": "Built with Next.js, Prisma & Neon",
     "rights": "All rights reserved."
+  },
+  "Meta": {
+    "title": "Yousef Abouteem | Software Engineer & Frontend Developer",
+    "description": "Software engineering graduate building modern web apps with React, Next.js and TypeScript. Open to work in Istanbul and remotely."
   }
 }

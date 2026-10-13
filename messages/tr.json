@@ -47,5 +47,9 @@
   "Footer": {
     "builtWith": "Next.js, Prisma ve Neon ile geliştirildi",
     "rights": "Tüm hakları saklıdır."
+  },
+  "Meta": {
+    "title": "Yousef Abouteem | Yazılım Mühendisi & Frontend Geliştirici",
+    "description": "React, Next.js ve TypeScript ile modern web uygulamaları geliştiren yazılım mühendisliği mezunu. İstanbul'da ve uzaktan çalışmaya açığım."
   }
 }
