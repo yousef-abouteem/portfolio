@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MobileNav from "./MobileNav";
+import HomeLink from "./HomeLink";
 
 export default async function Header() {
   const t = await getTranslations("Nav");
@@ -35,15 +36,19 @@ export default async function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-border bg-card/60 p-1 text-[15px] font-medium text-muted-foreground md:flex">
-          {links.map((link) => (
-            <Link
-              key={link.id}
-              href={link.href}
-              className="rounded-full px-6 py-1.5 transition hover:bg-muted hover:text-foreground lg:px-9"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const cls =
+              "rounded-full px-6 py-1.5 transition hover:bg-muted hover:text-foreground lg:px-9";
+            return link.id === "home" ? (
+              <HomeLink key={link.id} className={cls}>
+                {link.label}
+              </HomeLink>
+            ) : (
+              <Link key={link.id} href={link.href} className={cls}>
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="col-start-3 flex items-center justify-self-end gap-2">

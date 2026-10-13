@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import HomeLink from "./HomeLink";
 
 type Props = {
   links: { id: string; label: string; href: string }[];
@@ -55,6 +56,14 @@ export default function MobileNav({ links }: Props) {
         >
           {links.map((link) => (
             <li key={link.id} role="none">
+              {link.id === "home" ? (
+                <HomeLink
+                  onNavigate={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
+                >
+                  {link.label}
+                </HomeLink>
+              ) : (
               <Link
                 role="menuitem"
                 href={link.href}
@@ -63,6 +72,7 @@ export default function MobileNav({ links }: Props) {
               >
                 {link.label}
               </Link>
+              )}
             </li>
           ))}
         </ul>
