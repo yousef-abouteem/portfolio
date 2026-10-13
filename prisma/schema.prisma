@@ -133,3 +133,55 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
+enum ExperienceType {
+  education
+  work
+  certificate
+}
+
+model Experience {
+  id        String         @id @default(cuid())
+  type      ExperienceType
+  startDate DateTime
+  endDate   DateTime?
+  url       String?
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  translations ExperienceTranslation[]
+}
+
+model ExperienceTranslation {
+  id           String  @id @default(cuid())
+  locale       Locale
+  title        String
+  organization String
+  location     String?
+  description  String?
+
+  experienceId String
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+
+  @@unique([experienceId, locale])
+}
+
+model SkillGroup {
+  id        String   @id @default(cuid())
+  skills    String[]
+  sortOrder Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  translations SkillGroupTranslation[]
+}
+
+model SkillGroupTranslation {
+  id     String @id @default(cuid())
+  locale Locale
+  name   String
+
+  skillGroupId String
+  skillGroup   SkillGroup @relation(fields: [skillGroupId], references: [id], onDelete: Cascade)
+
+  @@unique([skillGroupId, locale])
+}

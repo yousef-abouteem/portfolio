@@ -20,5 +20,19 @@
     "code": "Source code",
     "details": "Details",
     "empty": "Projects coming soon."
+  },
+  "About": {
+    "title": "About",
+    "subtitle": "Skills, education and the languages I work in.",
+    "skills": "Skills",
+    "journey": "Education & Experience",
+    "languages": "Languages",
+    "present": "Present",
+    "arabic": "Arabic",
+    "english": "English",
+    "turkish": "Turkish",
+    "native": "Native",
+    "working": "Working proficiency",
+    "basic": "Basic"
   }
 }

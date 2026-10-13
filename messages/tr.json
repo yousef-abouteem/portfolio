@@ -20,5 +20,19 @@
     "code": "Kaynak kod",
     "details": "Detaylar",
     "empty": "Projeler yakında."
+  },
+  "About": {
+    "title": "Hakkımda",
+    "subtitle": "Yeteneklerim, eğitimim ve çalıştığım diller.",
+    "skills": "Yetenekler",
+    "journey": "Eğitim ve Deneyim",
+    "languages": "Diller",
+    "present": "Devam ediyor",
+    "arabic": "Arapça",
+    "english": "İngilizce",
+    "turkish": "Türkçe",
+    "native": "Ana dil",
+    "working": "İş düzeyinde",
+    "basic": "Temel"
   }
 }

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import type { Locale } from "@/generated/prisma/client";
 import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
+import AboutSection from "@/components/AboutSection";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -34,6 +35,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         cvUrl={profile?.cvUrl}
       />
       <ProjectsSection projects={projects} />
+      <AboutSection locale={lang} />
     </main>
   );
 }
