@@ -13,7 +13,7 @@ export default async function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header dir="ltr" className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-6">
         <Link href="/" dir="ltr" className="font-semibold tracking-tight">
           Yousef<span className="text-accent">.</span>
