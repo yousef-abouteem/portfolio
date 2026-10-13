@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Locale {
+  en
+  ar
+  tr
+}
+
+model Project {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  coverImage String?
+  techStack  String[]
+  liveUrl    String?
+  repoUrl    String?
+  featured   Boolean  @default(false)
+  published  Boolean  @default(false)
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  translations ProjectTranslation[]
+}
+
+model ProjectTranslation {
+  id          String @id @default(cuid())
+  locale      Locale
+  title       String
+  summary     String
+  description String
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, locale])
+}
+
+model Profile {
+  id          String   @id @default("main")
+  email       String?
+  githubUrl   String?
+  linkedinUrl String?
+  cvUrl       String?
+  avatarUrl   String?
+  updatedAt   DateTime @updatedAt
+
+  translations ProfileTranslation[]
+}
+
+model ProfileTranslation {
+  id       String @id @default(cuid())
+  locale   Locale
+  headline String
+  bio      String
+
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, locale])
+}
