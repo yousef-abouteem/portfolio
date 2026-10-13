@@ -27,18 +27,8 @@ export default async function Hero({
 
   return (
     <section className="flex items-center justify-between gap-10 py-20 sm:py-28">
-      <div className="flex flex-col gap-8">
+      <div className="flex min-w-0 flex-1 flex-col gap-8">
         <div style={delay(0)} className="animate-in flex items-center gap-3">
-          {avatarUrl && (
-            <Image
-              src={avatarUrl}
-              alt={t("name")}
-              width={56}
-              height={56}
-              priority
-              className="size-14 rounded-full border border-border object-cover md:hidden"
-            />
-          )}
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75" />
@@ -49,15 +39,32 @@ export default async function Hero({
         </div>
 
         <div className="flex flex-col gap-3">
-          <p style={delay(100)} className="animate-in text-lg text-muted-foreground">
-            {t("greeting")}
-          </p>
-          <h1
-            style={delay(200)}
-            className="animate-in text-5xl font-semibold tracking-tight rtl:tracking-normal sm:text-6xl"
-          >
-            {t("name")}
-          </h1>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex min-w-0 flex-col gap-3">
+              <p style={delay(100)} className="animate-in text-lg text-muted-foreground">
+                {t("greeting")}
+              </p>
+              <h1
+                style={delay(200)}
+                className="animate-in text-5xl font-semibold tracking-tight rtl:tracking-normal sm:text-6xl"
+              >
+                {t("name")}
+              </h1>
+            </div>
+            {avatarUrl && (
+              <div style={delay(300)} className="animate-in relative shrink-0 md:hidden">
+                <div className="absolute -inset-2 rounded-full bg-accent/20 blur-xl" />
+                <Image
+                  src={avatarUrl}
+                  alt={t("name")}
+                  width={96}
+                  height={96}
+                  priority
+                  className="relative size-24 rounded-full border border-border object-cover"
+                />
+              </div>
+            )}
+          </div>
           {headline && (
             <p
               style={delay(300)}
