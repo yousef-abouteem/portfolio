@@ -21,7 +21,17 @@ export default async function AdminPage() {
             Signed in as {session.user.email}
           </p>
         </div>
-        <SignOutButton />
+
+               <div className="flex items-center gap-2">
+          <Link
+            href="/admin/profile"
+            className="rounded-full px-4 py-2 text-sm transition hover:bg-foreground/10"
+          >
+            Profile
+          </Link>
+          <SignOutButton />
+        </div>
+        
       </header>
 
       <section className="flex flex-col gap-4">
