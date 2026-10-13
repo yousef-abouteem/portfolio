@@ -78,8 +78,6 @@ export default function ProjectCard({
           {liveUrl && (
             <a
               href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-accent transition hover:opacity-80"
             >
               {labels.live} ↗
@@ -88,8 +86,6 @@ export default function ProjectCard({
           {repoUrl && (
             <a
               href={repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-muted-foreground transition hover:text-foreground"
             >
               {labels.code}

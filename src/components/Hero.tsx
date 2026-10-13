@@ -58,8 +58,6 @@ export default async function Hero({
         {cvUrl && (
           <a
             href={cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="rounded-full border border-border px-5 py-2.5 text-sm font-medium transition hover:bg-muted"
           >
             {t("downloadCv")}
@@ -80,8 +78,6 @@ export default async function Hero({
         {githubUrl && (
           <a
             href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label="GitHub"
             className="transition hover:text-foreground"
           >
@@ -94,8 +90,6 @@ export default async function Hero({
         {linkedinUrl && (
           <a
             href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="transition hover:text-foreground"
           >

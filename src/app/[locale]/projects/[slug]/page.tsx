@@ -104,8 +104,6 @@ export default async function ProjectPage({
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-accent transition hover:opacity-80"
                   >
                     {t("live")} ↗
@@ -114,8 +112,6 @@ export default async function ProjectPage({
                 {project.repoUrl && (
                   <a
                     href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-muted-foreground transition hover:text-foreground"
                   >
                     {t("code")} ↗
