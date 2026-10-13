@@ -47,7 +47,7 @@ export async function createProject(
     };
   }
 
-  const { translations, liveUrl, repoUrl, ...rest } = parsed.data;
+    const { translations, liveUrl, repoUrl, coverImage, ...rest } = parsed.data;
 
   try {
     await prisma.project.create({
@@ -55,6 +55,7 @@ export async function createProject(
         ...rest,
         liveUrl: liveUrl || null,
         repoUrl: repoUrl || null,
+        coverImage: coverImage || null,
         translations: {
           create: LOCALES.map((locale) => ({
             locale,
@@ -91,7 +92,7 @@ export async function updateProject(
     };
   }
 
-  const { translations, liveUrl, repoUrl, ...rest } = parsed.data;
+    const { translations, liveUrl, repoUrl, coverImage, ...rest } = parsed.data;
 
   try {
     await prisma.project.update({
@@ -100,6 +101,7 @@ export async function updateProject(
         ...rest,
         liveUrl: liveUrl || null,
         repoUrl: repoUrl || null,
+        coverImage: coverImage || null,
         translations: {
           upsert: LOCALES.map((locale) => ({
             where: { projectId_locale: { projectId: id, locale } },

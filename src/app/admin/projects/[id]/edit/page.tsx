@@ -34,6 +34,7 @@ export default async function EditProjectPage({
     techStack: project.techStack,
     liveUrl: project.liveUrl ?? "",
     repoUrl: project.repoUrl ?? "",
+    coverImage: project.coverImage ?? "",
     featured: project.featured,
     published: project.published,
     sortOrder: project.sortOrder,

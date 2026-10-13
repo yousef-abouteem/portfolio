@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import type { ProjectInput } from "@/lib/validations/project";
 import type { ActionResult } from "./actions";
+import ImageUpload from "@/components/admin/ImageUpload";
 
 type Locale = "en" | "ar" | "tr";
 type TranslationField = "title" | "summary" | "description";
@@ -172,6 +173,17 @@ export default function ProjectForm({
 
       {/* General */}
       <section className="grid gap-4 rounded-2xl border border-foreground/15 p-6 sm:grid-cols-2">
+      
+              <div className="sm:col-span-2">
+          <ImageUpload
+            label="Cover image"
+            folder="projects"
+            value={values.coverImage}
+            onChange={(url) => update("coverImage", url)}
+            error={errors.coverImage}
+          />
+        </div>
+
         <Field label="Slug" error={errors.slug}>
           <input
             className={inputClass}
