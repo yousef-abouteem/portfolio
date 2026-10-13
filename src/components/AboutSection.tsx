@@ -18,7 +18,7 @@ export default async function AboutSection({ locale }: { locale: Locale }) {
 
   const formatDate = new Intl.DateTimeFormat(
     locale === "ar" ? "ar-u-nu-latn" : locale,
-    { month: "short", year: "numeric" },
+    { month: "short", year: "numeric", timeZone: "UTC" },
   ).format;
 
   const languages = [
