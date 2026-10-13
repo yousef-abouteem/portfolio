@@ -9,11 +9,10 @@ export default function HeroBackground() {
 
       {/* Code snippet */}
       <pre
-        dir="ltr"
         style={{ "--delay": "500ms" } as React.CSSProperties}
-        className="animate-in absolute end-0 top-6 hidden font-mono text-[13px] leading-6 text-muted-foreground/40 md:block"
+        className="animate-in absolute end-0 top-6 hidden text-left font-mono text-[13px] leading-6 text-muted-foreground/40 md:block"
       >
-        <code>
+        <code dir="ltr" className="block">
           <span className="text-accent/50">const</span> developer = {"{"}
           {"\n"}  name: <span className="text-emerald-500/50">&quot;Yousef Abouteem&quot;</span>,
           {"\n"}  role: <span className="text-emerald-500/50">&quot;Frontend Developer&quot;</span>,
