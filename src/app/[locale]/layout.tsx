@@ -4,9 +4,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import "../globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,7 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-       <html
+    <html
       lang={locale}
       dir={dir}
       suppressHydrationWarning
@@ -56,9 +57,10 @@ export default async function LocaleLayout({
     >
       <body className="font-sans">
         <ThemeProvider>
-                   <NextIntlClientProvider>
+          <NextIntlClientProvider>
             <Header />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

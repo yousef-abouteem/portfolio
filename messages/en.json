@@ -34,5 +34,14 @@
     "native": "Native",
     "working": "Working proficiency",
     "basic": "Basic"
+  },
+  "Contact": {
+    "title": "Let's work together",
+    "text": "I'm looking for my first frontend developer role in Istanbul or remotely. If you have an opportunity or just want to say hi, my inbox is always open.",
+    "button": "Send me an email"
+  },
+  "Footer": {
+    "builtWith": "Built with Next.js, Prisma & Neon",
+    "rights": "All rights reserved."
   }
 }

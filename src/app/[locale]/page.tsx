@@ -4,6 +4,7 @@ import type { Locale } from "@/generated/prisma/client";
 import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
 import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -36,6 +37,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       />
       <ProjectsSection projects={projects} />
       <AboutSection locale={lang} />
+      <ContactSection email={profile?.email} />
     </main>
   );
 }

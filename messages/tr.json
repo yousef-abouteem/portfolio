@@ -34,5 +34,14 @@
     "native": "Ana dil",
     "working": "İş düzeyinde",
     "basic": "Temel"
+  },
+  "Contact": {
+    "title": "Birlikte çalışalım",
+    "text": "İstanbul'da veya uzaktan ilk frontend geliştirici pozisyonumu arıyorum. Bir fırsatınız varsa ya da sadece merhaba demek isterseniz, gelen kutum her zaman açık.",
+    "button": "Bana e-posta gönder"
+  },
+  "Footer": {
+    "builtWith": "Next.js, Prisma ve Neon ile geliştirildi",
+    "rights": "Tüm hakları saklıdır."
   }
 }
