@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { prisma } from "@/lib/prisma";
 
-export const size = { width: 400, height: 400 };
+export const size = { width: 200, height: 200 };
 export const contentType = "image/png";
 export const alt = "Yousef Abouteem";
 
@@ -28,8 +28,7 @@ export default async function OpengraphImage() {
           <img
             src={profile.avatarUrl}
             alt=""
-            width={400}
-            height={400}
+            width={200}            height={200}
             style={{ objectFit: "cover" }}
           />
         ) : (
