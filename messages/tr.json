@@ -3,7 +3,8 @@
     "home": "Ana Sayfa",
     "projects": "Projeler",
     "about": "Hakkımda",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "email": "E-posta"
   },
   "Home": {
     "greeting": "Merhaba, ben",
