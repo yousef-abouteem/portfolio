@@ -1,10 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import MobileNav from "./MobileNav";
-import HomeLink from "./HomeLink";
+import SectionLink from "./SectionLink";
 
 export default async function Header() {
   const t = await getTranslations("Nav");
@@ -14,10 +13,10 @@ export default async function Header() {
   });
 
   const links = [
-    { id: "home", label: t("home"), href: "/" },
-    { id: "projects", label: t("projects"), href: "/#projects" },
-    { id: "about", label: t("about"), href: "/#about" },
-    { id: "contact", label: t("contact"), href: "/#contact" },
+    { id: "home", label: t("home") },
+    { id: "projects", label: t("projects") },
+    { id: "about", label: t("about") },
+    { id: "contact", label: t("contact") },
   ];
 
   return (
@@ -26,29 +25,25 @@ export default async function Header() {
       className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md"
     >
       <div className="grid h-16 w-full grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 lg:px-10">
-        <Link href="/" className="group/logo inline-flex items-center gap-2.5 justify-self-start">
+        <SectionLink className="group/logo inline-flex items-center gap-2.5 justify-self-start">
           <span className="flex size-9 items-center justify-center rounded-xl border border-border bg-card text-base font-bold transition group-hover/logo:border-accent/50">
             Y<span className="text-accent">.</span>
           </span>
           <span className="text-lg font-semibold tracking-tight">
             Yousef<span className="text-accent">.</span>
           </span>
-        </Link>
+        </SectionLink>
 
         <nav className="hidden items-center gap-1 rounded-full border border-border bg-card/60 p-1 text-[15px] font-medium text-muted-foreground md:flex">
-          {links.map((link) => {
-            const cls =
-              "rounded-full px-6 py-1.5 transition hover:bg-muted hover:text-foreground lg:px-9";
-            return link.id === "home" ? (
-              <HomeLink key={link.id} className={cls}>
-                {link.label}
-              </HomeLink>
-            ) : (
-              <Link key={link.id} href={link.href} className={cls}>
-                {link.label}
-              </Link>
-            );
-          })}
+          {links.map((link) => (
+            <SectionLink
+              key={link.id}
+              section={link.id === "home" ? undefined : link.id}
+              className="rounded-full px-6 py-1.5 transition hover:bg-muted hover:text-foreground lg:px-9"
+            >
+              {link.label}
+            </SectionLink>
+          ))}
         </nav>
 
         <div className="col-start-3 flex items-center justify-self-end gap-2">

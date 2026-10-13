@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroBackground from "./HeroBackground";
+import SectionLink from "./SectionLink";
 
 type Props = {
   headline?: string;
@@ -87,12 +88,9 @@ export default async function Hero({
         )}
 
         <div style={delay(500)} className="animate-in flex flex-wrap items-center gap-3">
-          <a
-            href="#projects"
-            className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
-          >
+          <SectionLink section="projects" className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90">
             {t("viewProjects")}
-          </a>
+          </SectionLink>
 
           {cvUrl && (
             <a

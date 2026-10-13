@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Link } from "@/i18n/navigation";
-import HomeLink from "./HomeLink";
+import SectionLink from "./SectionLink";
 
 type Props = {
-  links: { id: string; label: string; href: string }[];
+  links: { id: string; label: string }[];
 };
 
 export default function MobileNav({ links }: Props) {
@@ -41,11 +40,7 @@ export default function MobileNav({ links }: Props) {
         className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent/50"
       >
         <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          {open ? (
-            <path d="M18 6 6 18M6 6l12 12" />
-          ) : (
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          )}
+          {open ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
         </svg>
       </button>
 
@@ -56,23 +51,14 @@ export default function MobileNav({ links }: Props) {
         >
           {links.map((link) => (
             <li key={link.id} role="none">
-              {link.id === "home" ? (
-                <HomeLink
-                  onNavigate={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
-                >
-                  {link.label}
-                </HomeLink>
-              ) : (
-              <Link
+              <SectionLink
                 role="menuitem"
-                href={link.href}
-                onClick={() => setOpen(false)}
+                section={link.id === "home" ? undefined : link.id}
+                onNavigate={() => setOpen(false)}
                 className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
               >
                 {link.label}
-              </Link>
-              )}
+              </SectionLink>
             </li>
           ))}
         </ul>

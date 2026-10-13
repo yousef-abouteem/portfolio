@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Reveal from "@/components/Reveal";
+import HashCleaner from "@/components/HashCleaner";
 import TechMarquee from "@/components/TechMarquee";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <main className="mx-auto max-w-5xl px-6">
+      <HashCleaner />
       <Hero
         headline={profileText?.headline}
         bio={profileText?.bio}
